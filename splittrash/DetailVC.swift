@@ -10,5 +10,9 @@ import UIKit
 
 class DetailVC: UIViewController {
 
+	override func viewDidLoad() {
+		super.viewDidLoad()
+		view.backgroundColor = .brown
+	}
 }
 
