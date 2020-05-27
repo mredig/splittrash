@@ -10,15 +10,5 @@ import UIKit
 
 class DetailVC: UIViewController {
 
-
-
-
-	override func viewDidLoad() {
-		super.viewDidLoad()
-		navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
-		navigationItem.leftItemsSupplementBackButton = true
-	}
-
-
 }
 
