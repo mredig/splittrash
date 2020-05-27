@@ -11,7 +11,7 @@ import UIKit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 	var window: UIWindow?
-	let coordinator = SplitCoordinator(masterViewController: TheTableViewC(), detailViewController: DetailVC())
+	var coordinator: SplitCoordinator?
 
 	func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
 		// Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
@@ -19,9 +19,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 		// This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
 		guard let scene = (scene as? UIWindowScene) else { return }
 
-		coordinator.start()
+		let masterCoord = MasterCoordinator()
+		coordinator = SplitCoordinator(masterCoordinator: masterCoord, detailViewController: DetailVC())
+
+		coordinator?.start()
 		window = UIWindow(frame: UIScreen.main.bounds)
-		window?.rootViewController = coordinator.splitViewController
+		window?.rootViewController = coordinator?.splitViewController
 		window?.makeKeyAndVisible()
 
 		window?.windowScene = scene

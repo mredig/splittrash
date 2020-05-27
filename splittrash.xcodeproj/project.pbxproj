@@ -15,6 +15,7 @@
 		33BADCD5247DDA1F00E09783 /* TheTableViewC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33BADCD4247DDA1F00E09783 /* TheTableViewC.swift */; };
 		33BC39AF247E2AC600FD4B1E /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33BC39AE247E2AC600FD4B1E /* Coordinator.swift */; };
 		33BC39B1247E2AEA00FD4B1E /* SplitCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33BC39B0247E2AEA00FD4B1E /* SplitCoordinator.swift */; };
+		33BC39B3247E343900FD4B1E /* MasterCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33BC39B2247E343900FD4B1E /* MasterCoordinator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		33BADCD4247DDA1F00E09783 /* TheTableViewC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheTableViewC.swift; sourceTree = "<group>"; };
 		33BC39AE247E2AC600FD4B1E /* Coordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		33BC39B0247E2AEA00FD4B1E /* SplitCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplitCoordinator.swift; sourceTree = "<group>"; };
+		33BC39B2247E343900FD4B1E /* MasterCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterCoordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +79,7 @@
 			children = (
 				33BC39AE247E2AC600FD4B1E /* Coordinator.swift */,
 				33BC39B0247E2AEA00FD4B1E /* SplitCoordinator.swift */,
+				33BC39B2247E343900FD4B1E /* MasterCoordinator.swift */,
 			);
 			path = Coordinator;
 			sourceTree = "<group>";
@@ -154,6 +157,7 @@
 				33BADCC5247DD9D800E09783 /* DetailVC.swift in Sources */,
 				33BC39B1247E2AEA00FD4B1E /* SplitCoordinator.swift in Sources */,
 				33BADCD5247DDA1F00E09783 /* TheTableViewC.swift in Sources */,
+				33BC39B3247E343900FD4B1E /* MasterCoordinator.swift in Sources */,
 				33BC39AF247E2AC600FD4B1E /* Coordinator.swift in Sources */,
 				33BADCC1247DD9D800E09783 /* AppDelegate.swift in Sources */,
 				33BADCC3247DD9D800E09783 /* SceneDelegate.swift in Sources */,

@@ -8,8 +8,14 @@
 
 import UIKit
 
+protocol TheTableViewCCoordinator: Coordinator {
+
+}
+
 class TheTableViewC: UITableViewController {
-	let colors: [UIColor] = [.red, .blue, .magenta, .systemPink, .systemTeal]
+	typealias NamedColor = (name: String, color: UIColor)
+	let colors: [NamedColor] = [("Red", .red), ("Blue", .blue), ("Magenta", .magenta), ("Pink", .systemPink), ("Teal", .systemTeal)]
+	var coordinator: TheTableViewCCoordinator?
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -31,7 +37,7 @@ extension TheTableViewC {
 
 	override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-		cell.textLabel?.text = colors.description
+		cell.textLabel?.text = colors[indexPath.row].name
 
 		return cell
 	}

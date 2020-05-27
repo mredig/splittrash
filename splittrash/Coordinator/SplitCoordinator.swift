@@ -8,38 +8,36 @@
 
 import UIKit
 
-class SplitCoordinator: Coordinator {
+class SplitCoordinator {
 	var childCoordinators: [Coordinator] = []
 	let navigationController: UINavigationController
-	let masterNavigationController: UINavigationController
 	var detailNavigationController: UINavigationController {
 		navigationController
 	}
-	let masterViewController: UIViewController
 	let detailViewController: UIViewController
 	let splitViewController: UISplitViewController
+	let masterCoordinator: MasterCoordinator
 
 	var splitShouldCollapse = true
 
-	init(masterViewController: UIViewController,
-		 masterNavigationController: UINavigationController = UINavigationController(),
+	init(masterCoordinator: MasterCoordinator,
 		 detailViewController: UIViewController,
 		 detailNavigationController: UINavigationController = UINavigationController(),
 		 splitViewController: UISplitViewController = UISplitViewController()) {
+		self.masterCoordinator = masterCoordinator
 		navigationController = detailNavigationController
-		self.masterNavigationController = masterNavigationController
 		self.splitViewController = splitViewController
-		self.masterViewController = masterViewController
 		self.detailViewController = detailViewController
 
 		splitViewController.delegate = self
 	}
 
 	func start() {
+		childCoordinators.append(masterCoordinator)
+		masterCoordinator.start()
 		navigationController.pushViewController(detailViewController, animated: false)
-		masterNavigationController.pushViewController(masterViewController, animated: false)
 
-		splitViewController.viewControllers = [masterNavigationController, navigationController]
+		splitViewController.viewControllers = [masterCoordinator.navigationController, navigationController]
 	}
 }
 
