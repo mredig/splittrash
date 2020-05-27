@@ -19,7 +19,7 @@ class ColorTableView: UITableViewController {
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		navigationItem.title = "Select Color"
+		navigationItem.title = "Select a Color"
 
 		configureTableView()
 	}

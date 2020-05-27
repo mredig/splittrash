@@ -9,7 +9,7 @@
 import UIKit
 
 class DetailCoordinator: Coordinator, ChildCoordinator {
-	var parentCoordinator: SplitCoordinator?
+	weak var parentCoordinator: SplitCoordinator?
 	let navigationController: UINavigationController
 	var childCoordinators: [CoordinatorBase] = []
 	var detailVC: UIViewController
@@ -21,6 +21,10 @@ class DetailCoordinator: Coordinator, ChildCoordinator {
 
 	func start() {
 		navigationController.pushViewController(detailVC, animated: false)
+	}
+
+	func finish() {
+		parentCoordinator?.childDidFinish(child: self)
 	}
 }
 

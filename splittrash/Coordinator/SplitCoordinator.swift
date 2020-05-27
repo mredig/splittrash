@@ -14,7 +14,7 @@ class SplitCoordinator: CoordinatorBase {
 	let splitViewController: UISplitViewController
 
 	let masterCoordinator: MasterCoordinator
-	let detailCoordinator: DetailCoordinator
+	var detailCoordinator: DetailCoordinator
 
 	var splitShouldCollapse = true
 
@@ -54,10 +54,20 @@ extension SplitCoordinator: CoordinatorParent {
 // Master Coordinator Implementations
 extension SplitCoordinator {
 	func touchedColor(namedColor: NamedColor) {
-		let newVC = DetailColorVC()
+		detailCoordinator.finish()
+
+		let newDetail = DetailCoordinator()
+		newDetail.parentCoordinator = self
+		childCoordinators.append(newDetail)
+		detailCoordinator = newDetail
+		detailCoordinator.start()
+
+		splitShouldCollapse = false
+		let newVC = detailCoordinator.detailVC
 		newVC.view.backgroundColor = namedColor.color
-		newVC.title = namedColor.name
-		splitViewController.showDetailViewController(newVC, sender: nil)
+		newVC.navigationItem.title = namedColor.name
+
+		splitViewController.showDetailViewController(detailCoordinator.navigationController, sender: nil)
 	}
 }
 

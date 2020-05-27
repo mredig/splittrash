@@ -12,7 +12,9 @@ class DetailColorVC: UIViewController {
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		view.backgroundColor = .brown
+
+		navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
+		navigationItem.leftItemsSupplementBackButton = true
 	}
 }
 
