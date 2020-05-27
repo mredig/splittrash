@@ -32,9 +32,7 @@ class SplitCoordinator: CoordinatorBase {
 		childCoordinators.append(masterCoordinator)
 		masterCoordinator.parentCoordinator = self
 		masterCoordinator.start()
-		childCoordinators.append(detailCoordinator)
-		detailCoordinator.parentCoordinator = self
-		detailCoordinator.start()
+		setup(detailCoordinator: detailCoordinator, with: ("White", .white))
 
 		splitViewController.viewControllers = [masterCoordinator.navigationController, detailCoordinator.navigationController]
 	}
@@ -57,19 +55,23 @@ extension SplitCoordinator {
 		detailCoordinator.finish()
 
 		let newDetail = DetailCoordinator()
-		newDetail.parentCoordinator = self
-		childCoordinators.append(newDetail)
-		detailCoordinator = newDetail
-		detailCoordinator.start()
-
-		splitShouldCollapse = false
-		let newVC = detailCoordinator.detailVC
-		newVC.view.backgroundColor = namedColor.color
-		newVC.navigationItem.title = namedColor.name
-		newVC.navigationItem.leftBarButtonItem = splitViewController.displayModeButtonItem
-		newVC.navigationItem.leftItemsSupplementBackButton = true
+		setup(detailCoordinator: newDetail, with: namedColor)
 
 		splitViewController.showDetailViewController(detailCoordinator.navigationController, sender: nil)
+		splitShouldCollapse = false
+	}
+
+	func setup(detailCoordinator: DetailCoordinator, with color: NamedColor) {
+		self.detailCoordinator = detailCoordinator
+		childCoordinators.append(detailCoordinator)
+		detailCoordinator.parentCoordinator = self
+		detailCoordinator.start()
+
+		let newVC = detailCoordinator.detailVC
+		newVC.view.backgroundColor = color.color
+		newVC.navigationItem.title = color.name
+		newVC.navigationItem.leftBarButtonItem = splitViewController.displayModeButtonItem
+		newVC.navigationItem.leftItemsSupplementBackButton = true
 	}
 }
 

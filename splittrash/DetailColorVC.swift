@@ -9,12 +9,5 @@
 import UIKit
 
 class DetailColorVC: UIViewController {
-
-	override func viewDidLoad() {
-		super.viewDidLoad()
-
-		navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
-		navigationItem.leftItemsSupplementBackButton = true
-	}
 }
 
