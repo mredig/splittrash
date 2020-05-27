@@ -14,7 +14,6 @@
 		33BADCCD247DD9DA00E09783 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33BADCCB247DD9DA00E09783 /* LaunchScreen.storyboard */; };
 		33BADCD5247DDA1F00E09783 /* ColorTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33BADCD4247DDA1F00E09783 /* ColorTableView.swift */; };
 		33BC39AF247E2AC600FD4B1E /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33BC39AE247E2AC600FD4B1E /* Coordinator.swift */; };
-		33BC39B5247E388200FD4B1E /* DetailCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33BC39B4247E388200FD4B1E /* DetailCoordinator.swift */; };
 		33BC39B6247EFD6D00FD4B1E /* SplitCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33BC39B0247E2AEA00FD4B1E /* SplitCoordinator.swift */; };
 /* End PBXBuildFile section */
 
@@ -29,7 +28,6 @@
 		33BADCD4247DDA1F00E09783 /* ColorTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorTableView.swift; sourceTree = "<group>"; };
 		33BC39AE247E2AC600FD4B1E /* Coordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		33BC39B0247E2AEA00FD4B1E /* SplitCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplitCoordinator.swift; sourceTree = "<group>"; };
-		33BC39B4247E388200FD4B1E /* DetailCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCoordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,7 +77,6 @@
 			children = (
 				33BC39AE247E2AC600FD4B1E /* Coordinator.swift */,
 				33BC39B0247E2AEA00FD4B1E /* SplitCoordinator.swift */,
-				33BC39B4247E388200FD4B1E /* DetailCoordinator.swift */,
 			);
 			path = Coordinator;
 			sourceTree = "<group>";
@@ -156,7 +153,6 @@
 			files = (
 				33BADCC5247DD9D800E09783 /* DetailColorVC.swift in Sources */,
 				33BC39B6247EFD6D00FD4B1E /* SplitCoordinator.swift in Sources */,
-				33BC39B5247E388200FD4B1E /* DetailCoordinator.swift in Sources */,
 				33BADCD5247DDA1F00E09783 /* ColorTableView.swift in Sources */,
 				33BC39AF247E2AC600FD4B1E /* Coordinator.swift in Sources */,
 				33BADCC1247DD9D800E09783 /* AppDelegate.swift in Sources */,

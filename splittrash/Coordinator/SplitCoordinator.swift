@@ -12,17 +12,18 @@ class SplitCoordinator: CoordinatorBase {
 	var childCoordinators: [CoordinatorBase] = []
 
 	let masterNavController: UINavigationController
+	let detailNavControllerGenerator: () -> UINavigationController
+	var detailNavController: UINavigationController
 	let splitViewController: UISplitViewController
-
-	var detailCoordinator: DetailCoordinator
 
 	var splitShouldCollapse = true
 
 	init(masterNavController: UINavigationController = UINavigationController(),
-		 detailCoordinator: DetailCoordinator = DetailCoordinator(),
+		 detailNavControllerGenerator: @escaping () -> UINavigationController = { UINavigationController() },
 		 splitViewController: UISplitViewController = UISplitViewController()) {
 		self.masterNavController = masterNavController
-		self.detailCoordinator = detailCoordinator
+		self.detailNavControllerGenerator = detailNavControllerGenerator
+		self.detailNavController = detailNavControllerGenerator()
 		self.splitViewController = splitViewController
 
 		splitViewController.delegate = self
@@ -30,12 +31,11 @@ class SplitCoordinator: CoordinatorBase {
 
 	func start() {
 		setupMasterVC()
-		setup(detailCoordinator: detailCoordinator, with: ("White", .white))
+		setupDetailVC(with: ("White", .white))
 
-		splitViewController.viewControllers = [masterNavController, detailCoordinator.navigationController]
+		splitViewController.viewControllers = [masterNavController, detailNavController]
 		splitViewController.preferredDisplayMode = .allVisible
 	}
-
 
 	func setupMasterVC() {
 		let masterVC = ColorTableView()
@@ -43,21 +43,16 @@ class SplitCoordinator: CoordinatorBase {
 		masterNavController.pushViewController(masterVC, animated: false)
 	}
 
-	/// Despite what the docs say SHOULD happen when you call `showDetailViewController` (if theres a nav controller,
-	/// it should push the new VC onto the stack), it simply goes dumb and replaces whatever the detail vc is with the
-	/// new vc. Therefore, we need to supply a brand new nav controller *every time*. Might as well just give it a whole
-	/// new coordinator too while we are at it.
-	func setup(detailCoordinator: DetailCoordinator, with color: NamedColor) {
-		self.detailCoordinator = detailCoordinator
-		childCoordinators.append(detailCoordinator)
-		detailCoordinator.parentCoordinator = self
-		detailCoordinator.start()
-
-		let newVC = detailCoordinator.detailVC
+	func setupDetailVC(with color: NamedColor) {
+		let newVC = DetailColorVC()
 		newVC.view.backgroundColor = color.color
 		newVC.navigationItem.title = color.name
 		newVC.navigationItem.leftBarButtonItem = splitViewController.displayModeButtonItem
 		newVC.navigationItem.leftItemsSupplementBackButton = true
+
+		detailNavController = detailNavControllerGenerator()
+		detailNavController.pushViewController(newVC, animated: false)
+		splitViewController.showDetailViewController(detailNavController, sender: self)
 	}
 }
 
@@ -75,15 +70,10 @@ extension SplitCoordinator: CoordinatorParent {
 // Master Coordinator Implementations
 extension SplitCoordinator: TheTableViewCCoordinator {
 	func touchedColor(namedColor: NamedColor) {
-		detailCoordinator.finish()
 
-		let newDetail = DetailCoordinator()
-		setup(detailCoordinator: newDetail, with: namedColor)
-
-		splitViewController.showDetailViewController(detailCoordinator.navigationController, sender: nil)
+		setupDetailVC(with: namedColor)
 		splitShouldCollapse = false
 	}
-
 }
 
 extension SplitCoordinator: UISplitViewControllerDelegate {
