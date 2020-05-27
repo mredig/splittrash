@@ -35,6 +35,7 @@ class SplitCoordinator: CoordinatorBase {
 		setup(detailCoordinator: detailCoordinator, with: ("White", .white))
 
 		splitViewController.viewControllers = [masterCoordinator.navigationController, detailCoordinator.navigationController]
+		splitViewController.preferredDisplayMode = .allVisible
 	}
 }
 
@@ -82,5 +83,7 @@ extension SplitCoordinator: UISplitViewControllerDelegate {
 		splitShouldCollapse
 	}
 
-
+	func targetDisplayModeForAction(in svc: UISplitViewController) -> UISplitViewController.DisplayMode {
+		svc.displayMode == .allVisible ? .primaryHidden : .allVisible
+	}
 }
