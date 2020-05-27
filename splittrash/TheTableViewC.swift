@@ -14,7 +14,6 @@ class TheTableViewC: UITableViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		navigationItem.title = "Select Color"
-		print("\(String(describing: type(of: self))) inited")
 
 		configureTableView()
 	}

@@ -28,8 +28,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 		window?.makeKeyAndVisible()
 
 		window?.windowScene = scene
-
-		print("\(String(describing: type(of: self))) inited")
 	}
 
 	func sceneDidDisconnect(_ scene: UIScene) {
