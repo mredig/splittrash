@@ -8,8 +8,9 @@
 
 import UIKit
 
-class MasterCoordinator: Coordinator {
-	var childCoordinators: [Coordinator] = []
+class MasterCoordinator: Coordinator, ChildCoordinator {
+	var parentCoordinator: SplitCoordinator?
+	var childCoordinators: [CoordinatorBase] = []
 
 	let navigationController: UINavigationController
 	let masterViewController: TheTableViewC
@@ -26,5 +27,7 @@ class MasterCoordinator: Coordinator {
 }
 
 extension MasterCoordinator: TheTableViewCCoordinator {
-	
+	func touchedColor(namedColor: NamedColor) {
+		parentCoordinator?.touchedColor(namedColor: namedColor)
+	}
 }

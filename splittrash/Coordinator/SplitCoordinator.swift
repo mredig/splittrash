@@ -9,7 +9,7 @@
 import UIKit
 
 class SplitCoordinator: CoordinatorBase {
-	var childCoordinators: [Coordinator] = []
+	var childCoordinators: [CoordinatorBase] = []
 
 	let splitViewController: UISplitViewController
 
@@ -30,11 +30,34 @@ class SplitCoordinator: CoordinatorBase {
 
 	func start() {
 		childCoordinators.append(masterCoordinator)
+		masterCoordinator.parentCoordinator = self
 		masterCoordinator.start()
 		childCoordinators.append(detailCoordinator)
+		detailCoordinator.parentCoordinator = self
 		detailCoordinator.start()
 
 		splitViewController.viewControllers = [masterCoordinator.navigationController, detailCoordinator.navigationController]
+	}
+}
+
+extension SplitCoordinator: CoordinatorParent {
+	func childDidFinish(child: CoordinatorBase) {
+		for (index, coordinator) in childCoordinators.enumerated() {
+			if coordinator === child {
+				childCoordinators.remove(at: index)
+				break
+			}
+		}
+	}
+}
+
+// Master Coordinator Implementations
+extension SplitCoordinator {
+	func touchedColor(namedColor: NamedColor) {
+		let newVC = DetailVC()
+		newVC.view.backgroundColor = namedColor.color
+		newVC.title = namedColor.name
+		splitViewController.showDetailViewController(newVC, sender: nil)
 	}
 }
 

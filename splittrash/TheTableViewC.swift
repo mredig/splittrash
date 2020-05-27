@@ -8,12 +8,12 @@
 
 import UIKit
 
-protocol TheTableViewCCoordinator: Coordinator {
-
+typealias NamedColor = (name: String, color: UIColor)
+protocol TheTableViewCCoordinator: CoordinatorBase {
+	func touchedColor(namedColor: NamedColor)
 }
 
 class TheTableViewC: UITableViewController {
-	typealias NamedColor = (name: String, color: UIColor)
 	let colors: [NamedColor] = [("Red", .red), ("Blue", .blue), ("Magenta", .magenta), ("Pink", .systemPink), ("Teal", .systemTeal)]
 	var coordinator: TheTableViewCCoordinator?
 
@@ -42,7 +42,9 @@ extension TheTableViewC {
 		return cell
 	}
 
-//	override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//		<#code#>
-//	}
+	override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+		let color = colors[indexPath.row]
+
+		coordinator?.touchedColor(namedColor: color)
+	}
 }

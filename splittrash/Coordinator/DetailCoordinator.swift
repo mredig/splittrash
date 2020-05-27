@@ -8,9 +8,10 @@
 
 import UIKit
 
-class DetailCoordinator: Coordinator {
+class DetailCoordinator: Coordinator, ChildCoordinator {
+	var parentCoordinator: SplitCoordinator?
 	let navigationController: UINavigationController
-	var childCoordinators: [Coordinator] = []
+	var childCoordinators: [CoordinatorBase] = []
 	var detailVC: UIViewController
 
 	init(detailNavController: UINavigationController = UINavigationController()) {
