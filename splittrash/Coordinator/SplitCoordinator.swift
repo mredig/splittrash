@@ -18,8 +18,8 @@ class SplitCoordinator: CoordinatorBase {
 
 	var splitShouldCollapse = true
 
-	init(masterCoordinator: MasterCoordinator,
-		 detailCoordinator: DetailCoordinator,
+	init(masterCoordinator: MasterCoordinator = MasterCoordinator(),
+		 detailCoordinator: DetailCoordinator = DetailCoordinator(),
 		 splitViewController: UISplitViewController = UISplitViewController()) {
 		self.masterCoordinator = masterCoordinator
 		self.detailCoordinator = detailCoordinator
