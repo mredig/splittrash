@@ -9,10 +9,10 @@
 /* Begin PBXBuildFile section */
 		33BADCC1247DD9D800E09783 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33BADCC0247DD9D800E09783 /* AppDelegate.swift */; };
 		33BADCC3247DD9D800E09783 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33BADCC2247DD9D800E09783 /* SceneDelegate.swift */; };
-		33BADCC5247DD9D800E09783 /* DetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33BADCC4247DD9D800E09783 /* DetailVC.swift */; };
+		33BADCC5247DD9D800E09783 /* DetailColorVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33BADCC4247DD9D800E09783 /* DetailColorVC.swift */; };
 		33BADCCA247DD9DA00E09783 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 33BADCC9247DD9DA00E09783 /* Assets.xcassets */; };
 		33BADCCD247DD9DA00E09783 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33BADCCB247DD9DA00E09783 /* LaunchScreen.storyboard */; };
-		33BADCD5247DDA1F00E09783 /* TheTableViewC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33BADCD4247DDA1F00E09783 /* TheTableViewC.swift */; };
+		33BADCD5247DDA1F00E09783 /* ColorTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33BADCD4247DDA1F00E09783 /* ColorTableView.swift */; };
 		33BC39AF247E2AC600FD4B1E /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33BC39AE247E2AC600FD4B1E /* Coordinator.swift */; };
 		33BC39B1247E2AEA00FD4B1E /* SplitCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33BC39B0247E2AEA00FD4B1E /* SplitCoordinator.swift */; };
 		33BC39B3247E343900FD4B1E /* MasterCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33BC39B2247E343900FD4B1E /* MasterCoordinator.swift */; };
@@ -23,11 +23,11 @@
 		33BADCBD247DD9D800E09783 /* splittrash.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = splittrash.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		33BADCC0247DD9D800E09783 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		33BADCC2247DD9D800E09783 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		33BADCC4247DD9D800E09783 /* DetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailVC.swift; sourceTree = "<group>"; };
+		33BADCC4247DD9D800E09783 /* DetailColorVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailColorVC.swift; sourceTree = "<group>"; };
 		33BADCC9247DD9DA00E09783 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		33BADCCC247DD9DA00E09783 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		33BADCCE247DD9DA00E09783 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		33BADCD4247DDA1F00E09783 /* TheTableViewC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheTableViewC.swift; sourceTree = "<group>"; };
+		33BADCD4247DDA1F00E09783 /* ColorTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorTableView.swift; sourceTree = "<group>"; };
 		33BC39AE247E2AC600FD4B1E /* Coordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		33BC39B0247E2AEA00FD4B1E /* SplitCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplitCoordinator.swift; sourceTree = "<group>"; };
 		33BC39B2247E343900FD4B1E /* MasterCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterCoordinator.swift; sourceTree = "<group>"; };
@@ -67,8 +67,8 @@
 				33BC39AD247E2AB200FD4B1E /* Coordinator */,
 				33BADCC0247DD9D800E09783 /* AppDelegate.swift */,
 				33BADCC2247DD9D800E09783 /* SceneDelegate.swift */,
-				33BADCC4247DD9D800E09783 /* DetailVC.swift */,
-				33BADCD4247DDA1F00E09783 /* TheTableViewC.swift */,
+				33BADCC4247DD9D800E09783 /* DetailColorVC.swift */,
+				33BADCD4247DDA1F00E09783 /* ColorTableView.swift */,
 				33BADCC9247DD9DA00E09783 /* Assets.xcassets */,
 				33BADCCB247DD9DA00E09783 /* LaunchScreen.storyboard */,
 				33BADCCE247DD9DA00E09783 /* Info.plist */,
@@ -157,10 +157,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				33BADCC5247DD9D800E09783 /* DetailVC.swift in Sources */,
+				33BADCC5247DD9D800E09783 /* DetailColorVC.swift in Sources */,
 				33BC39B5247E388200FD4B1E /* DetailCoordinator.swift in Sources */,
 				33BC39B1247E2AEA00FD4B1E /* SplitCoordinator.swift in Sources */,
-				33BADCD5247DDA1F00E09783 /* TheTableViewC.swift in Sources */,
+				33BADCD5247DDA1F00E09783 /* ColorTableView.swift in Sources */,
 				33BC39B3247E343900FD4B1E /* MasterCoordinator.swift in Sources */,
 				33BC39AF247E2AC600FD4B1E /* Coordinator.swift in Sources */,
 				33BADCC1247DD9D800E09783 /* AppDelegate.swift in Sources */,

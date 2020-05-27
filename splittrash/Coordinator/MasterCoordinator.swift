@@ -13,11 +13,11 @@ class MasterCoordinator: Coordinator, ChildCoordinator {
 	var childCoordinators: [CoordinatorBase] = []
 
 	let navigationController: UINavigationController
-	let masterViewController: TheTableViewC
+	let masterViewController: ColorTableView
 
 	init(masterNavigationController: UINavigationController = UINavigationController()) {
 		self.navigationController = masterNavigationController
-		masterViewController = TheTableViewC()
+		masterViewController = ColorTableView()
 		masterViewController.coordinator = self
 	}
 

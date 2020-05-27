@@ -16,7 +16,7 @@ class DetailCoordinator: Coordinator, ChildCoordinator {
 
 	init(detailNavController: UINavigationController = UINavigationController()) {
 		navigationController = detailNavController
-		detailVC = DetailVC()
+		detailVC = DetailColorVC()
 	}
 
 	func start() {

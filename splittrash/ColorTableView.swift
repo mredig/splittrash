@@ -1,5 +1,5 @@
 //
-//  TheTableViewC.swift
+//  ColorTableView.swift
 //  splittrash
 //
 //  Created by Michael Redig on 5/26/20.
@@ -13,7 +13,7 @@ protocol TheTableViewCCoordinator: CoordinatorBase {
 	func touchedColor(namedColor: NamedColor)
 }
 
-class TheTableViewC: UITableViewController {
+class ColorTableView: UITableViewController {
 	let colors: [NamedColor] = [("Red", .red), ("Blue", .blue), ("Magenta", .magenta), ("Pink", .systemPink), ("Teal", .systemTeal)]
 	var coordinator: TheTableViewCCoordinator?
 
@@ -30,7 +30,7 @@ class TheTableViewC: UITableViewController {
 
 }
 
-extension TheTableViewC {
+extension ColorTableView {
 	override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 		colors.count
 	}

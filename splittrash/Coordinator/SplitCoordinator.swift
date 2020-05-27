@@ -54,7 +54,7 @@ extension SplitCoordinator: CoordinatorParent {
 // Master Coordinator Implementations
 extension SplitCoordinator {
 	func touchedColor(namedColor: NamedColor) {
-		let newVC = DetailVC()
+		let newVC = DetailColorVC()
 		newVC.view.backgroundColor = namedColor.color
 		newVC.title = namedColor.name
 		splitViewController.showDetailViewController(newVC, sender: nil)
