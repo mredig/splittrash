@@ -11,17 +11,17 @@ import UIKit
 class SplitCoordinator: CoordinatorBase {
 	var childCoordinators: [CoordinatorBase] = []
 
+	let masterNavController: UINavigationController
 	let splitViewController: UISplitViewController
 
-	let masterCoordinator: MasterCoordinator
 	var detailCoordinator: DetailCoordinator
 
 	var splitShouldCollapse = true
 
-	init(masterCoordinator: MasterCoordinator = MasterCoordinator(),
+	init(masterNavController: UINavigationController = UINavigationController(),
 		 detailCoordinator: DetailCoordinator = DetailCoordinator(),
 		 splitViewController: UISplitViewController = UISplitViewController()) {
-		self.masterCoordinator = masterCoordinator
+		self.masterNavController = masterNavController
 		self.detailCoordinator = detailCoordinator
 		self.splitViewController = splitViewController
 
@@ -29,37 +29,18 @@ class SplitCoordinator: CoordinatorBase {
 	}
 
 	func start() {
-		childCoordinators.append(masterCoordinator)
-		masterCoordinator.parentCoordinator = self
-		masterCoordinator.start()
+		setupMasterVC()
 		setup(detailCoordinator: detailCoordinator, with: ("White", .white))
 
-		splitViewController.viewControllers = [masterCoordinator.navigationController, detailCoordinator.navigationController]
+		splitViewController.viewControllers = [masterNavController, detailCoordinator.navigationController]
 		splitViewController.preferredDisplayMode = .allVisible
 	}
-}
 
-extension SplitCoordinator: CoordinatorParent {
-	func childDidFinish(child: CoordinatorBase) {
-		for (index, coordinator) in childCoordinators.enumerated() {
-			if coordinator === child {
-				childCoordinators.remove(at: index)
-				break
-			}
-		}
-	}
-}
 
-// Master Coordinator Implementations
-extension SplitCoordinator {
-	func touchedColor(namedColor: NamedColor) {
-		detailCoordinator.finish()
-
-		let newDetail = DetailCoordinator()
-		setup(detailCoordinator: newDetail, with: namedColor)
-
-		splitViewController.showDetailViewController(detailCoordinator.navigationController, sender: nil)
-		splitShouldCollapse = false
+	func setupMasterVC() {
+		let masterVC = ColorTableView()
+		masterVC.coordinator = self
+		masterNavController.pushViewController(masterVC, animated: false)
 	}
 
 	/// Despite what the docs say SHOULD happen when you call `showDetailViewController` (if theres a nav controller,
@@ -78,6 +59,31 @@ extension SplitCoordinator {
 		newVC.navigationItem.leftBarButtonItem = splitViewController.displayModeButtonItem
 		newVC.navigationItem.leftItemsSupplementBackButton = true
 	}
+}
+
+extension SplitCoordinator: CoordinatorParent {
+	func childDidFinish(child: CoordinatorBase) {
+		for (index, coordinator) in childCoordinators.enumerated() {
+			if coordinator === child {
+				childCoordinators.remove(at: index)
+				break
+			}
+		}
+	}
+}
+
+// Master Coordinator Implementations
+extension SplitCoordinator: TheTableViewCCoordinator {
+	func touchedColor(namedColor: NamedColor) {
+		detailCoordinator.finish()
+
+		let newDetail = DetailCoordinator()
+		setup(detailCoordinator: newDetail, with: namedColor)
+
+		splitViewController.showDetailViewController(detailCoordinator.navigationController, sender: nil)
+		splitShouldCollapse = false
+	}
+
 }
 
 extension SplitCoordinator: UISplitViewControllerDelegate {
