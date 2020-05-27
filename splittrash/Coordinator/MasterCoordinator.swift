@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MasterCoordinator: TheTableViewCCoordinator {
+class MasterCoordinator: Coordinator {
 	var childCoordinators: [Coordinator] = []
 
 	let navigationController: UINavigationController
@@ -23,6 +23,8 @@ class MasterCoordinator: TheTableViewCCoordinator {
 	func start() {
 		navigationController.pushViewController(masterViewController, animated: false)
 	}
+}
 
-
+extension MasterCoordinator: TheTableViewCCoordinator {
+	
 }

@@ -20,7 +20,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 		guard let scene = (scene as? UIWindowScene) else { return }
 
 		let masterCoord = MasterCoordinator()
-		coordinator = SplitCoordinator(masterCoordinator: masterCoord, detailViewController: DetailVC())
+		let detailCoord = DetailCoordinator()
+		coordinator = SplitCoordinator(masterCoordinator: masterCoord, detailCoordinator: detailCoord)
 
 		coordinator?.start()
 		window = UIWindow(frame: UIScreen.main.bounds)

@@ -16,6 +16,7 @@
 		33BC39AF247E2AC600FD4B1E /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33BC39AE247E2AC600FD4B1E /* Coordinator.swift */; };
 		33BC39B1247E2AEA00FD4B1E /* SplitCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33BC39B0247E2AEA00FD4B1E /* SplitCoordinator.swift */; };
 		33BC39B3247E343900FD4B1E /* MasterCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33BC39B2247E343900FD4B1E /* MasterCoordinator.swift */; };
+		33BC39B5247E388200FD4B1E /* DetailCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33BC39B4247E388200FD4B1E /* DetailCoordinator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		33BC39AE247E2AC600FD4B1E /* Coordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		33BC39B0247E2AEA00FD4B1E /* SplitCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplitCoordinator.swift; sourceTree = "<group>"; };
 		33BC39B2247E343900FD4B1E /* MasterCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterCoordinator.swift; sourceTree = "<group>"; };
+		33BC39B4247E388200FD4B1E /* DetailCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCoordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +82,7 @@
 				33BC39AE247E2AC600FD4B1E /* Coordinator.swift */,
 				33BC39B0247E2AEA00FD4B1E /* SplitCoordinator.swift */,
 				33BC39B2247E343900FD4B1E /* MasterCoordinator.swift */,
+				33BC39B4247E388200FD4B1E /* DetailCoordinator.swift */,
 			);
 			path = Coordinator;
 			sourceTree = "<group>";
@@ -155,6 +158,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				33BADCC5247DD9D800E09783 /* DetailVC.swift in Sources */,
+				33BC39B5247E388200FD4B1E /* DetailCoordinator.swift in Sources */,
 				33BC39B1247E2AEA00FD4B1E /* SplitCoordinator.swift in Sources */,
 				33BADCD5247DDA1F00E09783 /* TheTableViewC.swift in Sources */,
 				33BC39B3247E343900FD4B1E /* MasterCoordinator.swift in Sources */,
