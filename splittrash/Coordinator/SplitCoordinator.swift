@@ -66,6 +66,8 @@ extension SplitCoordinator {
 		let newVC = detailCoordinator.detailVC
 		newVC.view.backgroundColor = namedColor.color
 		newVC.navigationItem.title = namedColor.name
+		newVC.navigationItem.leftBarButtonItem = splitViewController.displayModeButtonItem
+		newVC.navigationItem.leftItemsSupplementBackButton = true
 
 		splitViewController.showDetailViewController(detailCoordinator.navigationController, sender: nil)
 	}
@@ -77,4 +79,6 @@ extension SplitCoordinator: UISplitViewControllerDelegate {
 							 onto primaryViewController: UIViewController) -> Bool {
 		splitShouldCollapse
 	}
+
+
 }
