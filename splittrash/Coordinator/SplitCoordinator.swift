@@ -62,6 +62,10 @@ extension SplitCoordinator {
 		splitShouldCollapse = false
 	}
 
+	/// Despite what the docs say SHOULD happen when you call `showDetailViewController` (if theres a nav controller,
+	/// it should push the new VC onto the stack), it simply goes dumb and replaces whatever the detail vc is with the
+	/// new vc. Therefore, we need to supply a brand new nav controller *every time*. Might as well just give it a whole
+	/// new coordinator too while we are at it.
 	func setup(detailCoordinator: DetailCoordinator, with color: NamedColor) {
 		self.detailCoordinator = detailCoordinator
 		childCoordinators.append(detailCoordinator)
